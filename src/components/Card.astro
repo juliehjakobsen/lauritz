@@ -1,0 +1,21 @@
+---
+const { titel, beskrivelse, deluxe, variant } = Astro.props;
+---
+
+<article data-variant={variant} class={deluxe == true && "deluxe"}>
+  <img src="" alt="" />
+  <h2>{titel}</h2>
+  <p>{beskrivelse}</p>
+  <!-- deluxe boolian -->
+  {deluxe == true && <p>Deluxe</p>}
+  <!-- deluxe boolian -->
+</article>
+
+<style>
+  article {
+    background: var(--card-bg);
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 50%;
+  }
+</style>

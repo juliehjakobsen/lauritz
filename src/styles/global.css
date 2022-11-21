@@ -1,0 +1,12 @@
+:root {
+  /* options */
+  --color-baggrund: #fffefb;
+  --color-graa: #c2c3be;
+  --color-beige: #e1d9c6;
+  --color-gron: #a59c7f;
+  --color-sort: #1a1617;
+  --color-morkegron: #7b7360;
+
+  /* aliases / component tokens */
+  --card-bg: var(--color-graa);
+}
