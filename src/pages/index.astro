@@ -1,5 +1,8 @@
 ---
 import Card from "../components/Card.astro";
+import Card2 from "../components/Card2.astro";
+import Button from "../components/Button.astro";
+import Button2 from "../components/Button2.astro";
 import "../styles/global.css";
 ---
 
@@ -9,15 +12,79 @@ import "../styles/global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Lauritz</title>
   </head>
   <body>
-    <h1>Astro</h1>
+    <h1>Listeview af vare</h1>
+    <Card
+      deluxe={true}
+      titel="Amoré maleri - Roberto Consinuo"
+      beskrivelse="Praesent mollis mollis turpis, in fermentum risus mollis nec. Donec ullamcorper dolor vitae ante elementum eleifend. Nulla volutpat accumsan faucibus. Cras porttitor vitae urna vel dictum."
+      showroom="DK, Herlev"
+      udlobstid="18-11-2022 20:49"
+      naestebud="12.000"
+      vurdering="14.400"
+      kobnu="14.000"
+    />
+
     <Card
       deluxe={false}
-      titel="Titel 1"
-      beskrivelse="Astro er bare så fedt altså"
+      titel="'Skoven' maleri af Augustus Limbert"
+      beskrivelse="Praesent mollis mollis turpis, in fermentum risus mollis nec. Donec ullamcorper dolor vitae ante elementum eleifend. Nulla volutpat accumsan faucibus. Cras porttitor vitae urna vel dictum."
+      showroom="DK, Frederiksberg"
+      udlobstid="23-12-2022"
+      naestebud="35.500"
+      vurdering="40.000"
+      kobnu="28.600"
     />
-    <Card deluxe={true} titel="Titel 2" beskrivelse="Jeg er dårlig til det" />
+
+    <h1>Aktive bud</h1>
+    <Card2
+      titel="Antikke kopper i porcelæn"
+      beskrivelse="Praesent mollis mollis turpis, in fermentum risus mollis nec. Donec ullamcorper dolor vitae ante elementum eleifend. Nulla volutpat accumsan faucibus. Cras porttitor vitae urna vel dictum."
+      varenummer="2559081"
+      vurdering="3.200"
+      naestebud="2.000"
+      udlober={false}
+      showroom="DK, Frederiksberg"
+      udlobstid="23.03.2023 12:00"
+      forende={true}
+    />
+
+    <Card2
+      titel="Antikke kopper i porcelæn"
+      beskrivelse="Praesent mollis mollis turpis, in fermentum risus mollis nec. Donec ullamcorper dolor vitae ante elementum eleifend. Nulla volutpat accumsan faucibus. Cras porttitor vitae urna vel dictum."
+      varenummer="2559081"
+      vurdering="3.200"
+      naestebud="2.000"
+      udlober={true}
+      showroom="DK, Glostrup"
+      udlobstid="26.11.2022 23:59"
+      forende={true}
+    />
+
+    <h1>Knapper</h1>
+    <Button />
+    <Button2 />
+
+    <section></section>
   </body>
 </html>
+<style>
+  body {
+    margin-top: var(--body-margin);
+    display: grid;
+    gap: var(--body-gap);
+    margin-bottom: 100px;
+    background-color: var(--color-baggrund);
+  }
+
+  section {
+    height: 5rem;
+  }
+
+  h1 {
+    text-align: center;
+    font-style: italic;
+  }
+</style>

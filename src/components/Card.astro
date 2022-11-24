@@ -1,21 +1,135 @@
 ---
-const { titel, beskrivelse, deluxe, variant } = Astro.props;
+const {
+  titel,
+  beskrivelse,
+  deluxe,
+  variant,
+  showroom,
+  udlobstid,
+  naestebud,
+  vurdering,
+  kobnu,
+} = Astro.props;
 ---
 
-<article data-variant={variant} class={deluxe == true && "deluxe"}>
-  <img src="" alt="" />
-  <h2>{titel}</h2>
-  <p>{beskrivelse}</p>
-  <!-- deluxe boolian -->
-  {deluxe == true && <p>Deluxe</p>}
-  <!-- deluxe boolian -->
-</article>
+<section class={deluxe == true && "deluxe"}>
+  <div class="billeder">
+    <img id="maleri" src="/img/maleri.png" />
+
+    {deluxe == true && <img class="deluxe" src="/img/deluxe.png" />}
+  </div>
+
+  <div class="beskrivelser">
+    <h2>{titel}</h2>
+    <p class="beskrivelse">{beskrivelse}</p>
+    <p><span class="showroom"> Showroom:</span> {showroom}</p>
+    <p class="ult"><span class="udlobstid"> Udløbstid:</span> {udlobstid}</p>
+  </div>
+
+  <article class="priser">
+    <div class="bud">
+      <p>Næste bud:</p>
+      <p class="bud_pris">DKK {naestebud}</p>
+    </div>
+
+    <div class="vurdering">
+      <p>Vurdering:</p>
+      <p class="vurdering_pris">DKK {vurdering}</p>
+    </div>
+
+    <div class="kobnu">
+      <p>Køb nu:</p>
+      <p class="kobnu_pris">DKK {kobnu}</p>
+    </div>
+
+    <div class="button">
+      <button><a href="#"> Se produkt</a></button>
+    </div>
+  </article>
+</section>
 
 <style>
-  article {
+  .billeder {
+    position: relative;
+  }
+
+  #maleri {
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+  }
+
+  .deluxe img {
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    height: 30px;
+    z-index: 1;
+  }
+
+  section {
     background: var(--card-bg);
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 50%;
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin: auto;
+    padding: 30px;
+    box-shadow: var(--shadow);
+  }
+
+  .button {
+    margin-top: 106px;
+    display: flex;
+    place-content: end;
+  }
+
+  button a {
+    text-decoration: none;
+
+    color: var(--color-baggrund);
+  }
+
+  button {
+    border: none;
+    border-radius: var(--radius-button);
+    background-color: var(--color-morkegraa);
+    height: var(--button-height);
+    width: var(--button-width);
+    color: var(--color-baggrund);
+    font-weight: 500;
+    font-size: var(--font-size-knap);
+    box-shadow: var(--shadow);
+    margin: auto;
+    cursor: pointer;
+  }
+
+  .bud,
+  .vurdering,
+  .kobnu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: var(--padding-bottom);
+  }
+
+  h2,
+  .beskrivelse {
+    padding-bottom: var(--padding-bottom);
+  }
+
+  .ult {
+    padding-top: var(--padding-top);
+  }
+
+  .bud p {
+    font-size: var(--font-size-bud);
+  }
+
+  .bud,
+  .vurdering,
+  .kobnu,
+  .showroom,
+  .udlobstid {
+    font-weight: 900;
   }
 </style>
